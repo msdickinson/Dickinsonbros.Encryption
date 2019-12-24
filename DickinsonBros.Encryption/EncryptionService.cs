@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using DickinsonBros.Encryption.Models;
+using Microsoft.Extensions.Options;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;

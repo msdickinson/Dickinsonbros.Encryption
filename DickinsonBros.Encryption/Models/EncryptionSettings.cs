@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace DickinsonBros.Encryption
+namespace DickinsonBros.Encryption.Models
 {
     [ExcludeFromCodeCoverage]
     public class EncryptionSettings
