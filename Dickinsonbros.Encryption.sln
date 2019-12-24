@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption", "DickinsonBros.Encryption\DickinsonBros.Encryption.csproj", "{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Lib", "1 Lib", "{A690459E-02EA-4162-83AB-07A916F3BBEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Misc", "9 Misc", "{A7E22FE9-1257-4D39-BE6D-B0D83E778BE4}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\CreateNugetPackage.ps1 = Scripts\CreateNugetPackage.ps1
+		Scripts\CreateNugetPackageCI.ps1 = Scripts\CreateNugetPackageCI.ps1
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Tests", "DickinsonBros.Encryption.Tests\DickinsonBros.Encryption.Tests.csproj", "{DD9FD1B2-A336-4175-9BD9-31F6090EF405}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9FD1B2-A336-4175-9BD9-31F6090EF405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9FD1B2-A336-4175-9BD9-31F6090EF405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9FD1B2-A336-4175-9BD9-31F6090EF405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9FD1B2-A336-4175-9BD9-31F6090EF405}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41} = {A690459E-02EA-4162-83AB-07A916F3BBEC}
+		{DD9FD1B2-A336-4175-9BD9-31F6090EF405} = {A690459E-02EA-4162-83AB-07A916F3BBEC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3A35194-BC7B-4AC5-B122-F8392AB0B874}
+	EndGlobalSection
+EndGlobal
