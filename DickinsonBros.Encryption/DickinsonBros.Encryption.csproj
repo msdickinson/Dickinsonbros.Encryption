@@ -6,9 +6,15 @@
     <Version>1.0.0</Version>
     <Authors>Mark Dickinson</Authors>
     <Company>DickinsonBros</Company>
+    <RepositoryUrl>https://github.com/msdickinson/DickinsonBros.Encryption.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>
+      Ability to encode and decode strings with certs
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.0" />
   </ItemGroup>
 

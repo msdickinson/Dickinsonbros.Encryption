@@ -5,15 +5,14 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption", "DickinsonBros.Encryption\DickinsonBros.Encryption.csproj", "{76D0E4D2-2881-44CC-97E6-94DCCDFB5F41}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Lib", "1 Lib", "{A690459E-02EA-4162-83AB-07A916F3BBEC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Misc", "9 Misc", "{A7E22FE9-1257-4D39-BE6D-B0D83E778BE4}"
-	ProjectSection(SolutionItems) = preProject
-		Scripts\CreateNugetPackage.ps1 = Scripts\CreateNugetPackage.ps1
-		Scripts\CreateNugetPackageCI.ps1 = Scripts\CreateNugetPackageCI.ps1
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Library", "1 Library", "{A690459E-02EA-4162-83AB-07A916F3BBEC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DickinsonBros.Encryption.Tests", "DickinsonBros.Encryption.Tests\DickinsonBros.Encryption.Tests.csproj", "{DD9FD1B2-A336-4175-9BD9-31F6090EF405}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 Scripts", "9 Scripts", "{5B3932C5-ADF4-4EF9-A3B7-C819966AE8A8}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\CreateNugetPackageCI.ps1 = Scripts\CreateNugetPackageCI.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
