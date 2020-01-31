@@ -9,4 +9,4 @@ Features
 * Certificate based encryption 
 * Configure certificate location
 
-<a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Test">Builds</a>
+<a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption">Builds</a>
