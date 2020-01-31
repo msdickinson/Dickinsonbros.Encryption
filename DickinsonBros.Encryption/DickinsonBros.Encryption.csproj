@@ -9,7 +9,11 @@
     <RepositoryUrl>https://github.com/msdickinson/DickinsonBros.Encryption.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>
-      Ability to encode and decode strings with certs
+      Encrypt and Decrypt strings
+
+      Features
+      * Certificate based encryption 
+      * Configure certificate location
     </Description>
   </PropertyGroup>
 
