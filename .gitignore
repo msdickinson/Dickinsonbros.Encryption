@@ -338,4 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/DickinsonBros.Encryption.Runner/appsettings.DEBUG.json
+
+#DickinsonBros Config
+*appsettings.DEBUG.json
