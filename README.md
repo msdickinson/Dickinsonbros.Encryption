@@ -66,7 +66,7 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var encryptedString = encryptionService.Encrypt(sampleString)
     var decryptedString = encryptionService.Decrypt(encryptedString)
     
-<h3>Addtional Dependency Injeciton Use Cases</h3>   
+<h3>Addtional Use Cases</h3>   
 
 <b>Decrpyt Options as needed using a IConfigureOptions and EncryptionService</b>
 
