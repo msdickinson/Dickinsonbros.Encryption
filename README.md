@@ -19,13 +19,18 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
 
 <i>Code</i>
 
-    var telemetryServiceOptions = new TelemetryServiceOptions
+    using DickinsonBros.Encryption;
+    using DickinsonBros.Encryption.Models;
+    
+    ...
+
+    var encryptionServiceOptions = new EncryptionServiceOptions
     {
         ThumbPrint = "...",
         StoreLocation = "..."
     };
 
-    var options = Options.Create(telemetryServiceOptions);
+    var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
 
 <b>Create Instance (With Dependency Injeciton)</b>
@@ -41,18 +46,24 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     
 <i>Code</i>
 
+    using DickinsonBros.Encryption.Abstractions;
+    using DickinsonBros.Encryption.Extensions;
+    using DickinsonBros.Encryption.Models;
+    
+    ...  
+
     var services = new ServiceCollection();
     
     //Configure Options
     var builder = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", false)
+
+    //Add Service
+    serviceCollection.AddEncryptionService();
     
-    //Add Options to ServiceCollection
+    //Add Service Configuration
     services.Configure<EncryptionSettings>(configuration.GetSection("EncryptionSettings"));
-    
-    //Add Options to ServiceCollection
-    services.AddSingleton<IEncryptionService, EncryptionService>();
     
     //Build Service Provider 
     using (var provider = services.BuildServiceProvider())
