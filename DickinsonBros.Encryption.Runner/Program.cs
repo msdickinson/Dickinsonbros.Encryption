@@ -1,4 +1,5 @@
 ﻿using DickinsonBros.Encryption.Abstractions;
+using DickinsonBros.Encryption.Extensions;
 using DickinsonBros.Encryption.Models;
 using DickinsonBros.Encryption.Runner.Services;
 using Microsoft.AspNetCore.Hosting;
@@ -29,16 +30,17 @@ namespace DickinsonBros.Encryption.Runner
 
                     using (var provider = services.BuildServiceProvider())
                     {
-                        var encryptionService = provider.GetRequiredService<IEncryptionService>();
+                        var encryptionService = (EncryptionService)provider.GetRequiredService<IEncryptionService>();
 
-                    var stringToEncrypt = "String123!";
-                    Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
 
-                    var encyptedString = encryptionService.Encrypt(stringToEncrypt);
-                    Console.WriteLine("Encrypted String" + Environment.NewLine + encyptedString + Environment.NewLine);
+                        var stringToEncrypt = "Data Source=.;Initial Catalog=DickinsonBros.Telemetry.Runner.Database;Integrated Security=True;";
+                        Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
 
-                    var decryptedString = encryptionService.Decrypt(encyptedString);
-                    Console.WriteLine("Decrypted String" + Environment.NewLine + decryptedString + Environment.NewLine);
+                        var encyptedString = encryptionService.Encrypt(stringToEncrypt);
+                        Console.WriteLine("Encrypted String" + Environment.NewLine + encyptedString + Environment.NewLine);
+
+                        var decryptedString = encryptionService.Decrypt(encyptedString);
+                        Console.WriteLine("Decrypted String" + Environment.NewLine + decryptedString + Environment.NewLine);
                     }
                     applicationLifetime.StopApplication();
                     await Task.CompletedTask.ConfigureAwait(false);
@@ -68,8 +70,9 @@ namespace DickinsonBros.Encryption.Runner
                 }
             });
             services.AddSingleton<IApplicationLifetime>(applicationLifetime);
-            services.Configure<EncryptionSettings>(_configuration.GetSection("EncryptionSettings"));
-            services.AddSingleton<IEncryptionService, EncryptionService>();
+            services.AddEncryptionService();
+            services.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
+
         }
 
         IServiceCollection InitializeDependencyInjection()
