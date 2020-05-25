@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace DickinsonBros.Encryption.Extensions
 {
-    public static class EncryptionServiceExtensions
+    public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddEncryptionService(this IServiceCollection serviceCollection)
         {
