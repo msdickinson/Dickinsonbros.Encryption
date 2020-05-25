@@ -17,6 +17,8 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
 
 <b>Create Instance</b>
 
+<i>Code</i>
+
     var telemetryServiceOptions = new TelemetryServiceOptions
     {
         ThumbPrint = "...",
@@ -37,16 +39,22 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
       }
     }
     
-<i>Add Code</i>
+<i>Code</i>
 
     var services = new ServiceCollection();
+    
+    //Configure Options
     var builder = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", false)
-        
+    
+    //Add Options to ServiceCollection
     services.Configure<EncryptionSettings>(configuration.GetSection("EncryptionSettings"));
+    
+    //Add Options to ServiceCollection
     services.AddSingleton<IEncryptionService, EncryptionService>();
     
+    //Build Service Provider 
     using (var provider = services.BuildServiceProvider())
     {
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
