@@ -65,4 +65,38 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var sampleString = "ABC123";
     var encryptedString = encryptionService.Encrypt(sampleString)
     var decryptedString = encryptionService.Decrypt(encryptedString)
+    
+<h3>Addtional Dependency Injeciton Use Cases</h3>   
 
+<b>Decrpyt Options as needed using a IConfigureOptions and EncryptionService</b>
+
+A strong use case for Encrpytion is to encrpyt ahead of time passwords and keys that will reside in the appsettions.json file.
+Then using IConfigureOptions and EncryptionService you can decrypt them as needed. Example Below.
+
+     public class DickinsonBrosSQLRunnerDBOptionsConfigurator : IConfigureOptions<DickinsonBrosSQLRunnerDB>
+    {
+        private readonly IServiceScopeFactory _serviceScopeFactory;
+        public DickinsonBrosSQLRunnerDBOptionsConfigurator(IServiceScopeFactory serviceScopeFactory)
+        {
+            _serviceScopeFactory = serviceScopeFactory;
+        }
+        void IConfigureOptions<DickinsonBrosSQLRunnerDB>.Configure(DickinsonBrosSQLRunnerDB options)
+        {
+            using (var scope = _serviceScopeFactory.CreateScope())
+            {
+                var provider = scope.ServiceProvider;
+                var configuration = provider.GetRequiredService<IConfiguration>();
+                var encryptionService = provider.GetRequiredService<IEncryptionService>();
+
+                var dickinsonBrosSQLRunnerDBSettings = configuration.GetSection(nameof(DickinsonBrosSQLRunnerDB)).Get<DickinsonBrosSQLRunnerDB>();
+                dickinsonBrosSQLRunnerDBSettings.ConnectionString = encryptionService.Decrypt(dickinsonBrosSQLRunnerDBSettings.ConnectionString);
+                configuration.Bind($"{nameof(DickinsonBrosSQLRunnerDB)}", options);
+
+                options.ConnectionString = encryptionService.Decrypt(options.ConnectionString);
+            }
+        }
+    }
+
+For more info on IConfigureOptions
+<br/>
+    https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
