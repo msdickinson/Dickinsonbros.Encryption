@@ -15,7 +15,7 @@ namespace DickinsonBros.Encryption.Runner
     class Program
     {
         IConfiguration _configuration;
-        async static Task Main(string[] args)
+        async static Task Main()
         {
             await new Program().DoMain();
         }
@@ -23,28 +23,26 @@ namespace DickinsonBros.Encryption.Runner
         {
             try
             {
-                using (var applicationLifetime = new ApplicationLifetime())
+                using var applicationLifetime = new ApplicationLifetime();
+                var services = InitializeDependencyInjection();
+                ConfigureServices(services, applicationLifetime);
+
+                using (var provider = services.BuildServiceProvider())
                 {
-                    var services = InitializeDependencyInjection();
-                    ConfigureServices(services, applicationLifetime);
-
-                    using (var provider = services.BuildServiceProvider())
-                    {
-                        var encryptionService = (EncryptionService)provider.GetRequiredService<IEncryptionService>();
+                    var encryptionService = provider.GetRequiredService<IEncryptionService>();
 
 
-                        var stringToEncrypt = "Data Source=.;Initial Catalog=DickinsonBros.Telemetry.Runner.Database;Integrated Security=True;";
-                        Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
+                    var stringToEncrypt = "Data Source=.;Initial Catalog=DickinsonBros.Telemetry.Runner.Database;Integrated Security=True;";
+                    Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
 
-                        var encyptedString = encryptionService.Encrypt(stringToEncrypt);
-                        Console.WriteLine("Encrypted String" + Environment.NewLine + encyptedString + Environment.NewLine);
+                    var encyptedString = encryptionService.Encrypt(stringToEncrypt);
+                    Console.WriteLine("Encrypted String" + Environment.NewLine + encyptedString + Environment.NewLine);
 
-                        var decryptedString = encryptionService.Decrypt(encyptedString);
-                        Console.WriteLine("Decrypted String" + Environment.NewLine + decryptedString + Environment.NewLine);
-                    }
-                    applicationLifetime.StopApplication();
-                    await Task.CompletedTask.ConfigureAwait(false);
+                    var decryptedString = encryptionService.Decrypt(encyptedString);
+                    Console.WriteLine("Decrypted String" + Environment.NewLine + decryptedString + Environment.NewLine);
                 }
+                applicationLifetime.StopApplication();
+                await Task.CompletedTask.ConfigureAwait(false);
             }
             catch (Exception e)
             {
