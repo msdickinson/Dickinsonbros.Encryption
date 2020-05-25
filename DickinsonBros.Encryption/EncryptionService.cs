@@ -15,13 +15,18 @@ namespace DickinsonBros.Encryption
         internal readonly string _thumbPrint;
         internal readonly StoreLocation _storeLocation;
 
-        public EncryptionService(IOptions<EncryptionSettings> encryptionSettings)
+        public EncryptionService(IOptions<EncryptionServiceOptions> encryptionServiceOptions)
         {
-            _thumbPrint = encryptionSettings.Value.ThumbPrint;
-            _storeLocation = encryptionSettings.Value.StoreLocation == "LocalMachine"
+            _thumbPrint = encryptionServiceOptions.Value.ThumbPrint;
+            _storeLocation = encryptionServiceOptions.Value.StoreLocation == "LocalMachine"
                                 ? StoreLocation.LocalMachine : StoreLocation.CurrentUser;
         }
 
+        /// <summary>
+        /// Takes encrypted string and decrypts it.
+        /// </summary>
+        /// <param name="encryptedString"></param>
+        /// <returns>decrypted string</returns>
         public string Decrypt(string encryptedString)
         {
             try
@@ -49,6 +54,12 @@ namespace DickinsonBros.Encryption
                 throw new Exception($"Unhandled exception. Thumbprint: {_thumbPrint}, Location: {_storeLocation}", ex);
             }
         }
+
+        /// <summary>
+        /// Takes string and encrypts it.
+        /// </summary>
+        /// <param name="encryptedString"></param>
+        /// <returns>Encrypted string</returns>
         public string Encrypt(string rawString)
         {
             try
