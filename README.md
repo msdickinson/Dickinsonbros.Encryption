@@ -28,7 +28,7 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var options = Options.Create(telemetryServiceOptions);
     var encryptionService = new EncryptionService(options)
 
-<b>Create Instance (With Depdency Injeciton)</b>
+<b>Create Instance (With Dependency Injeciton)</b>
 
 <i>Add appsettings.json File With Contents</i>
     
