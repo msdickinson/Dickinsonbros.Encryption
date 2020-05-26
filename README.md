@@ -21,7 +21,6 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <h2>Setup</h2>
 
-
 <i>Install a windows certificate</i>
 
 <i>Add Nuget References</i>
@@ -29,11 +28,12 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     <PackageReference Include="DickinsonBros.Encryption" Version="..." />
     <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
 
-<b>Create Instance</b>
+<h3>Create Instance</h3>
 
 <i>Add Nuget References</i>
 
-
+    https://www.nuget.org/packages/DickinsonBros.Encryption/
+    https://www.nuget.org/packages/DickinsonBros.Encryption.Abstractions/
 
 <i>Code</i>
 
@@ -51,12 +51,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
 
-<b>Create Instance (With Dependency Injection)</b>
-
-<i>Add Nuget References</i>
-
-    <PackageReference Include="DickinsonBros.Encryption" Version="..." />
-    <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
+<h3>Create Instance (With Dependency Injection)</h3>
 
 <i>Add appsettings.json File With Contents</i>
     
