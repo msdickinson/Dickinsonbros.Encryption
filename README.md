@@ -9,24 +9,31 @@ Features
 * Certificate based encryption 
 * Configure certificate location
 
+- Example Runner Included https://github.com/msdickinson/Dickinsonbros.Encryption/tree/master/DickinsonBros.Encryption.Runner
+
 <a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption">Builds</a>
 
-<h3>Example Usage</h3>
+<h2>Example Usage</h2>
 
 ![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
 
 ![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
 
-<h3>Setup</h3>
+<h2>Setup</h2>
 
-Install a windows certificate (Below you will need the ThumbPrint and StoreLocation)
 
-<b>Create Instance</b>
+<i>Install a windows certificate</i>
 
 <i>Add Nuget References</i>
 
     <PackageReference Include="DickinsonBros.Encryption" Version="..." />
     <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
+
+<b>Create Instance</b>
+
+<i>Add Nuget References</i>
+
+
 
 <i>Code</i>
 
@@ -44,7 +51,7 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
 
-<b>Create Instance (With Dependency Injeciton)</b>
+<b>Create Instance (With Dependency Injection)</b>
 
 <i>Add Nuget References</i>
 
