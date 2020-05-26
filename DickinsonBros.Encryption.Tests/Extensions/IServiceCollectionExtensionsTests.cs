@@ -10,7 +10,7 @@ namespace DickinsonBros.Encryption.Tests.Extensions
     public class IServiceCollectionExtensionsTests
     {
         [TestMethod]
-        public void AddPropelAPI_Should_Succeed()
+        public void AddEncryptionService_Should_Succeed()
         {
             // Arrange
             var serviceCollection = new ServiceCollection();
