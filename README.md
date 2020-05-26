@@ -11,11 +11,24 @@ Features
 
 <a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption">Builds</a>
 
-<h3>Usage</h3>
+<h3>Example Usage</h3>
+
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionAppSettings.PNG)
+
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
+
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
+
+<h3>Setup</h3>
 
 Install a windows certificate (Below you will need the ThumbPrint and StoreLocation)
 
 <b>Create Instance</b>
+
+<i>Add Nuget References</i>
+
+    <PackageReference Include="DickinsonBros.Encryption" Version="..." />
+    <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
 
 <i>Code</i>
 
@@ -34,6 +47,11 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var encryptionService = new EncryptionService(options)
 
 <b>Create Instance (With Dependency Injeciton)</b>
+
+<i>Add Nuget References</i>
+
+    <PackageReference Include="DickinsonBros.Encryption" Version="..." />
+    <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
 
 <i>Add appsettings.json File With Contents</i>
     
@@ -72,7 +90,7 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
     }
     
-<b>Example Usage</b>
+<h3>Usage</h3>
 
     var sampleString = "ABC123";
     var encryptedString = encryptionService.Encrypt(sampleString)
