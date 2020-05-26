@@ -25,8 +25,8 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <i>Add Nuget References</i>
 
-    <PackageReference Include="DickinsonBros.Encryption" Version="..." />
-    <PackageReference Include="DickinsonBros.Encryption.Abstractions" Version="..." />
+    https://www.nuget.org/packages/DickinsonBros.Encryption/
+    https://www.nuget.org/packages/DickinsonBros.Encryption/Abstractions
 
 <h3>Create Instance</h3>
 
