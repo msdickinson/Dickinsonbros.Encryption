@@ -11,11 +11,24 @@ Features
 
 <a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption">Builds</a>
 
-<h3>Usage</h3>
+<h2>Example Usage</h2>
 
-Install a windows certificate (Below you will need the ThumbPrint and StoreLocation)
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
 
-<b>Create Instance</b>
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
+
+Example Runner Included in folder "DickinsonBros.Encryption.Runner"
+
+<h2>Setup</h2>
+
+<i>Install a windows certificate</i>
+
+<i>Add Nuget References</i>
+
+    https://www.nuget.org/packages/DickinsonBros.Encryption/
+    https://www.nuget.org/packages/DickinsonBros.Encryption/Abstractions
+
+<h3>Create Instance</h3>
 
 <i>Code</i>
 
@@ -33,7 +46,7 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
 
-<b>Create Instance (With Dependency Injeciton)</b>
+<h3>Create Instance (With Dependency Injection)</h3>
 
 <i>Add appsettings.json File With Contents</i>
     
@@ -52,28 +65,23 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     
     ...  
 
-    var services = new ServiceCollection();
+
+    var serviceCollection = new ServiceCollection();
     
     //Configure Options
     var builder = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", false)
 
+    var configuration = builder.Build();
+    serviceCollection.AddOptions();
+    serviceCollection.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
+                
     //Add Service
     serviceCollection.AddEncryptionService();
-    
-    //Add Service Configuration
-    services.Configure<EncryptionSettings>(configuration.GetSection("EncryptionSettings"));
     
     //Build Service Provider 
     using (var provider = services.BuildServiceProvider())
     {
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
     }
-    
-<b>Example Usage</b>
-
-    var sampleString = "ABC123";
-    var encryptedString = encryptionService.Encrypt(sampleString)
-    var decryptedString = encryptionService.Decrypt(encryptedString)
-
