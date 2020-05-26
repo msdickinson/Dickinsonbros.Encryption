@@ -40,25 +40,25 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 <i>Add Nuget References</i>
 
     https://www.nuget.org/packages/DickinsonBros.Encryption/
-    https://www.nuget.org/packages/DickinsonBros.Encryption/Abstractions
+    https://www.nuget.org/packages/DickinsonBros.Encryption.Abstractions
 
 <h3>Create Instance</h3>
 
 <i>Code</i>
 ```c#
-    using DickinsonBros.Encryption;
-    using DickinsonBros.Encryption.Models;
+using DickinsonBros.Encryption;
+using DickinsonBros.Encryption.Models;
     
     ...
 
-    var encryptionServiceOptions = new EncryptionServiceOptions
-    {
-        ThumbPrint = "...",
-        StoreLocation = "..."
-    };
+var encryptionServiceOptions = new EncryptionServiceOptions
+{
+    ThumbPrint = "...",
+    StoreLocation = "..."
+};
 
-    var options = Options.Create(encryptionServiceOptions);
-    var encryptionService = new EncryptionService(options)
+var options = Options.Create(encryptionServiceOptions);
+var encryptionService = new EncryptionService(options);
 
 ```
 
@@ -66,40 +66,40 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <i>Add appsettings.json File With Contents</i>
  ```json  
-    {
-      "EncryptionSettings": {
-        "ThumbPrint": "...",
-        "StoreLocation": "..."
-      }
-    }
+{
+  "EncryptionSettings": {
+    "ThumbPrint": "...",
+    "StoreLocation": "..."
+  }
+}
  ```    
 <i>Code</i>
 ```c#
 
-    using DickinsonBros.Encryption.Abstractions;
-    using DickinsonBros.Encryption.Extensions;
-    using DickinsonBros.Encryption.Models;
-    
-    ...  
+using DickinsonBros.Encryption.Abstractions;
+using DickinsonBros.Encryption.Extensions;
+using DickinsonBros.Encryption.Models;
+
+...  
 
 
-    var serviceCollection = new ServiceCollection();
-    
-    //Configure Options
-    var builder = new ConfigurationBuilder()
-        .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json", false)
+var serviceCollection = new ServiceCollection();
 
-    var configuration = builder.Build();
-    serviceCollection.AddOptions();
-    serviceCollection.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
-                
-    //Add Service
-    serviceCollection.AddEncryptionService();
-    
-    //Build Service Provider 
-    using (var provider = services.BuildServiceProvider())
-    {
-       var encryptionService = provider.GetRequiredService<IEncryptionService>();
-    }
+//Configure Options
+var builder = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", false)
+
+var configuration = builder.Build();
+serviceCollection.AddOptions();
+serviceCollection.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
+
+//Add Service
+serviceCollection.AddEncryptionService();
+
+//Build Service Provider 
+using (var provider = services.BuildServiceProvider())
+{
+   var encryptionService = provider.GetRequiredService<IEncryptionService>();
+}
 ```
