@@ -31,7 +31,6 @@ namespace DickinsonBros.Encryption.Runner
                 {
                     var encryptionService = provider.GetRequiredService<IEncryptionService>();
 
-
                     var stringToEncrypt = "Data Source=.;Initial Catalog=DickinsonBros.Telemetry.Runner.Database;Integrated Security=True;";
                     Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
 
