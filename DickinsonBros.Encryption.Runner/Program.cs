@@ -31,15 +31,15 @@ namespace DickinsonBros.Encryption.Runner
                 {
                     var encryptionService = provider.GetRequiredService<IEncryptionService>();
 
+var encryptedString = encryptionService.Encrypt("Sample123!");
+var decryptedString = encryptionService.Decrypt(encryptedString);
+    Console.WriteLine(
+$@"Encrypted String
+{ encryptedString }
 
-                    var stringToEncrypt = "Data Source=.;Initial Catalog=DickinsonBros.Telemetry.Runner.Database;Integrated Security=True;";
-                    Console.WriteLine("String To Encrpyt" + Environment.NewLine + stringToEncrypt + Environment.NewLine);
-
-                    var encyptedString = encryptionService.Encrypt(stringToEncrypt);
-                    Console.WriteLine("Encrypted String" + Environment.NewLine + encyptedString + Environment.NewLine);
-
-                    var decryptedString = encryptionService.Decrypt(encyptedString);
-                    Console.WriteLine("Decrypted String" + Environment.NewLine + decryptedString + Environment.NewLine);
+Decrypted String
+{ decryptedString }
+");
                 }
                 applicationLifetime.StopApplication();
                 await Task.CompletedTask.ConfigureAwait(false);

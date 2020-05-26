@@ -55,7 +55,9 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
+
 ```
+
 <h3>Create Instance (With Dependency Injection)</h3>
 
 <i>Add appsettings.json File With Contents</i>
