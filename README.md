@@ -9,8 +9,6 @@ Features
 * Certificate based encryption 
 * Configure certificate location
 
-- Example Runner Included https://github.com/msdickinson/Dickinsonbros.Encryption/tree/master/DickinsonBros.Encryption.Runner
-
 <a href="https://dev.azure.com/marksamdickinson/DickinsonBros/_build?definitionScope=%5CDickinsonBros.Encryption">Builds</a>
 
 <h2>Example Usage</h2>
@@ -18,6 +16,8 @@ Features
 ![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
 
 ![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
+
+Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <h2>Setup</h2>
 
