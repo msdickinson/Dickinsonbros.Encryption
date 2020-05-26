@@ -31,7 +31,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 <h3>Create Instance</h3>
 
 <i>Code</i>
-
+```c#
     using DickinsonBros.Encryption;
     using DickinsonBros.Encryption.Models;
     
@@ -45,19 +45,20 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
-
+```
 <h3>Create Instance (With Dependency Injection)</h3>
 
 <i>Add appsettings.json File With Contents</i>
-    
+ ```json  
     {
       "EncryptionSettings": {
         "ThumbPrint": "...",
         "StoreLocation": "..."
       }
     }
-    
+ ```    
 <i>Code</i>
+```c#
 
     using DickinsonBros.Encryption.Abstractions;
     using DickinsonBros.Encryption.Extensions;
@@ -85,3 +86,4 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     {
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
     }
+```
