@@ -65,6 +65,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     
     ...  
 
+
     var serviceCollection = new ServiceCollection();
     
     //Configure Options
@@ -73,12 +74,12 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
         .AddJsonFile("appsettings.json", false)
 
     var configuration = builder.Build();
-    services.AddOptions();
-    services.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
+    serviceCollection.AddOptions();
+    serviceCollection.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
                 
     //Add Service
     serviceCollection.AddEncryptionService();
-
+    
     //Build Service Provider 
     using (var provider = services.BuildServiceProvider())
     {
