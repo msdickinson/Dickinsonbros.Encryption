@@ -52,19 +52,20 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     
     ...  
 
-    var services = new ServiceCollection();
+    var serviceCollection = new ServiceCollection();
     
     //Configure Options
     var builder = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", false)
 
+    var configuration = builder.Build();
+    services.AddOptions();
+    services.Configure<EncryptionServiceOptions>(_configuration.GetSection(nameof(EncryptionServiceOptions)));
+                
     //Add Service
     serviceCollection.AddEncryptionService();
-    
-    //Add Service Configuration
-    services.Configure<EncryptionSettings>(configuration.GetSection("EncryptionSettings"));
-    
+
     //Build Service Provider 
     using (var provider = services.BuildServiceProvider())
     {
