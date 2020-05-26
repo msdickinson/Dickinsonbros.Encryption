@@ -25,7 +25,7 @@ Decrypted String
 ");
 ```
 
-![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/master/EncryptionSampleOutput.PNG)
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/master/EncryptionServiceSampleOutput.PNG)
 
 Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
