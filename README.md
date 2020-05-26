@@ -14,7 +14,7 @@ Features
 <h2>Example Usage</h2>
 
 ```C#
-var encryptedString = encryptionService.Encrypt("Sample123!");
+var encryptedString = encryptionService.Encrypt("Sample123");
 var decryptedString = encryptionService.Decrypt(encryptedString);
     Console.WriteLine(
 $@"Encrypted String
