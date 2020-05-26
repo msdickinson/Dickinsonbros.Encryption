@@ -13,7 +13,17 @@ Features
 
 <h2>Example Usage</h2>
 
-![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
+```C#
+var encryptedString = encryptionService.Encrypt("Sample123!");
+var decryptedString = encryptionService.Decrypt(encryptedString);
+    Console.WriteLine(
+$@"Encrypted String
+{ encryptedString }
+
+Decrypted String
+{ decryptedString }
+");
+```
 
 ![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
 
