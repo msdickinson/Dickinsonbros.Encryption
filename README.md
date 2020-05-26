@@ -44,7 +44,6 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <h3>Create Instance</h3>
 
-<i>Code</i>
 ```c#
 using DickinsonBros.Encryption;
 using DickinsonBros.Encryption.Models;
