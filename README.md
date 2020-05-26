@@ -89,10 +89,3 @@ Install a windows certificate (Below you will need the ThumbPrint and StoreLocat
     {
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
     }
-    
-<h3>Usage</h3>
-
-    var sampleString = "ABC123";
-    var encryptedString = encryptionService.Encrypt(sampleString)
-    var decryptedString = encryptionService.Decrypt(encryptedString)
-
