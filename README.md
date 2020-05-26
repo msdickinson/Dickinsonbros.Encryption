@@ -24,8 +24,12 @@ Decrypted String
 { decryptedString }
 ");
 ```
+    
+    Encrypted String
+    f4KFyOSqPAM8ju2q+521D3S2zGNuvsNks382GOlgL8C3VyaWVhCF4VS0bIyoQjK8KsoI7mQ8Uu8w54TkzCHuFGqXOmLJU0Rfjurjn+01VCxBsgo1G23u4QUtM5uXBSye/S/jcXGVLDJX90F7gss+NdKvbhebq6jFnFsR6ZhrTGc7BLbLiE0M/BE7A+8hxCGjOFXvgwBm8nTFhXh/sSV8fbZ9pCzwcPuSXMTKxRi+cji3jN42hJidmOBNKIXi2pq6hIL5kcDxKXuVxznOOOcwh/clfCa8Hx6rY/q1O4y14AT5IknCnvYXWCEroXfvX1vlemXewL/UCN486c6VzGssGA==
 
-![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/master/EncryptionSampleOutput.PNG)
+    Decrypted String
+    Sample123!
 
 Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
