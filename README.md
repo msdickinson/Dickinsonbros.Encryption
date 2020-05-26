@@ -13,9 +13,19 @@ Features
 
 <h2>Example Usage</h2>
 
-![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleUsage.PNG)
+```C#
+var encryptedString = encryptionService.Encrypt("Sample123");
+var decryptedString = encryptionService.Decrypt(encryptedString);
+    Console.WriteLine(
+$@"Encrypted String
+{ encryptedString }
 
-![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/develop/EncryptionSampleOutput.PNG)
+Decrypted String
+{ decryptedString }
+");
+```
+
+![Alt text](https://raw.githubusercontent.com/msdickinson/DickinsonBros.Encryption/master/EncryptionSampleOutput.PNG)
 
 Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
@@ -31,7 +41,7 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 <h3>Create Instance</h3>
 
 <i>Code</i>
-
+```c#
     using DickinsonBros.Encryption;
     using DickinsonBros.Encryption.Models;
     
@@ -46,18 +56,21 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     var options = Options.Create(encryptionServiceOptions);
     var encryptionService = new EncryptionService(options)
 
+```
+
 <h3>Create Instance (With Dependency Injection)</h3>
 
 <i>Add appsettings.json File With Contents</i>
-    
+ ```json  
     {
       "EncryptionSettings": {
         "ThumbPrint": "...",
         "StoreLocation": "..."
       }
     }
-    
+ ```    
 <i>Code</i>
+```c#
 
     using DickinsonBros.Encryption.Abstractions;
     using DickinsonBros.Encryption.Extensions;
@@ -85,3 +98,4 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
     {
        var encryptionService = provider.GetRequiredService<IEncryptionService>();
     }
+```
