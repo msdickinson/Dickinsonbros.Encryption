@@ -30,11 +30,6 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <h3>Create Instance</h3>
 
-<i>Add Nuget References</i>
-
-    https://www.nuget.org/packages/DickinsonBros.Encryption/
-    https://www.nuget.org/packages/DickinsonBros.Encryption.Abstractions/
-
 <i>Code</i>
 
     using DickinsonBros.Encryption;
