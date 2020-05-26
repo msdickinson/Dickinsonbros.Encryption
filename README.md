@@ -35,9 +35,9 @@ Example Runner Included in folder "DickinsonBros.Encryption.Runner"
 
 <h2>Setup</h2>
 
-<i>Install a windows certificate</i>
+<h3>Install a windows certificate</h3>
 
-<i>Add Nuget References</i>
+<h3>Add Nuget References</h3>
 
     https://www.nuget.org/packages/DickinsonBros.Encryption/
     https://www.nuget.org/packages/DickinsonBros.Encryption.Abstractions
@@ -63,7 +63,8 @@ var encryptionService = new EncryptionService(options);
 
 <h3>Create Instance (With Dependency Injection)</h3>
 
-<i>Add appsettings.json File With Contents</i>
+<h4>Add appsettings.json File With Contents</h4>
+
  ```json  
 {
   "EncryptionSettings": {
@@ -72,7 +73,8 @@ var encryptionService = new EncryptionService(options);
   }
 }
  ```    
-<i>Code</i>
+<h4>Code</h4>
+
 ```c#
 
 using DickinsonBros.Encryption.Abstractions;
